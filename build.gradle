@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.9.6'
 }
 
 group 'org.example'
@@ -10,13 +11,21 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
-    testImplementation 'com.codeborne:selenide:6.12.2'
-    testImplementation 'org.seleniumhq.selenium:selenium-java:4.8.0'
+    testImplementation 'com.codeborne:selenide:6.12.3'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.8.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.2'
+
+    //allure
+    runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.5'
+    testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.12.1'
+    testImplementation 'io.qameta.allure:allure-commandline:2.12.1'
+    testImplementation 'io.qameta.allure:allure-assertj:2.12.1'
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.12.1'
+    testImplementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.12.1'
 }
 
 test {
