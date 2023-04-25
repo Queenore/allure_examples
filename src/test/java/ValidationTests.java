@@ -1,3 +1,4 @@
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -6,12 +7,9 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-@RunWith(Parameterized.class)
 public class ValidationTests extends BaseTest {
 
     SettingsPage settingsPage;
@@ -38,6 +36,7 @@ public class ValidationTests extends BaseTest {
     @Feature("изменение пароля")
     @ParameterizedTest(name = "password validation")
     @ValueSource(strings = {"qwe", "1", "", "4d12f", "фыва3йьй4"})
+    @Attachment(value = "тест валидации пароля")
     public void passwdValidationTest(String newPasswd) {
         initSettingsPage();
         initPasswdPage();

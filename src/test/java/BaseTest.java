@@ -1,8 +1,10 @@
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Epic("base test (each step auth)")
 public class BaseTest {
 
     public static final String authPageLink = "https://ok.ru/";
