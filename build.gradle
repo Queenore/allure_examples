@@ -19,9 +19,11 @@ dependencies {
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.8.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.2'
 
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+
     //allure
     runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.5'
-    testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.12.1'
+    testImplementation group: 'io.qameta.allure', name: 'allure-junit4', version: '2.12.1'
     testImplementation 'io.qameta.allure:allure-commandline:2.12.1'
     testImplementation 'io.qameta.allure:allure-assertj:2.12.1'
     testImplementation 'io.qameta.allure:allure-rest-assured:2.12.1'
