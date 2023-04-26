@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Ignored tests",
+    "matchedStatuses": ["skipped"]
+  },
+  {
+    "name": "Outdated tests",
+    "matchedStatuses": ["broken"],
+    "traceRegex": ".*FileNotFoundException.*"
+  },
+  {
+    "name": "Устаревшие тесты (селекторы)",
+    "messageRegex": ".*Unable to locate element.*",
+    "matchedStatuses": ["broken"]
+  },
+  {
+    "name": "Проблемы с браузером",
+    "messageRegex": ".*Timed out .* from renderer.*",
+    "matchedStatuses": ["broken"]
+  },
+  {
+    "name": "Некорректные результаты",
+    "messageRegex": ".*expected:.*",
+    "matchedStatuses": ["broken"]
+  }
+]
