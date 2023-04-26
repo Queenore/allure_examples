@@ -1,7 +1,8 @@
-import com.codeborne.selenide.Condition;
-import org.openqa.selenium.By;
+package pages;
 
-import static com.codeborne.selenide.Selenide.$;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import org.openqa.selenium.By;
 
 public class PasswordPage extends BasePage {
 
@@ -11,25 +12,25 @@ public class PasswordPage extends BasePage {
 
     @Override
     public void checkPage() {
-        $(By.xpath(PASSWD_CHANGE_AREA)).shouldBe(Condition.visible);
+        Selenide.$(By.xpath(PASSWD_CHANGE_AREA)).shouldBe(Condition.visible);
     }
 
     public PasswordPage setOldPassword(String oldPasswd) {
-        $(By.id("field_oldPassword")).shouldBe(Condition.visible).val(oldPasswd);
+        Selenide.$(By.id("field_oldPassword")).shouldBe(Condition.visible).val(oldPasswd);
         return this;
     }
 
     public PasswordPage setNewPassword(String newPasswd) {
-        $(By.id("field_newPassword")).shouldBe(Condition.visible).val(newPasswd);
-        $(By.id("field_retypePassword")).shouldBe(Condition.visible).val(newPasswd);
+        Selenide.$(By.id("field_newPassword")).shouldBe(Condition.visible).val(newPasswd);
+        Selenide.$(By.id("field_retypePassword")).shouldBe(Condition.visible).val(newPasswd);
         return this;
     }
 
     public void submitPasswordChange() {
-        $(By.xpath(SAVE_PASSWD)).shouldBe(Condition.visible).click();
+        Selenide.$(By.xpath(SAVE_PASSWD)).shouldBe(Condition.visible).click();
     }
 
     public String getInfoAfterChangingPasswd() {
-        return $(By.xpath(INFO_AFTER_CHANGING)).shouldBe(Condition.exist).getText();
+        return Selenide.$(By.xpath(INFO_AFTER_CHANGING)).shouldBe(Condition.exist).getText();
     }
 }

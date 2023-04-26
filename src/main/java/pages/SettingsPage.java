@@ -1,9 +1,10 @@
+package pages;
+
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsPage extends BasePage {
 
@@ -13,23 +14,15 @@ public class SettingsPage extends BasePage {
 
     @Override
     public void checkPage() {
-        $(By.xpath(MAIN_SETTINGS_AREA)).shouldBe(Condition.visible);
+        Selenide.$(By.xpath(MAIN_SETTINGS_AREA)).shouldBe(Condition.visible);
     }
 
     public PasswordPage getPasswordPage() {
-        $(byXpath(PASSWD_PAGE_BUTTON)).shouldBe(Condition.visible).click();
+        Selenide.$(Selectors.byXpath(PASSWD_PAGE_BUTTON)).shouldBe(Condition.visible).click();
         return new PasswordPage();
     }
 
-    public void goToPublicitySettings() {
-        $(byXpath(PUBLICITY_SETTINGS_BUTTON)).shouldBe(Condition.visible).parent().click();
-    }
-
-    public void clickRadioButton(Integer pos) {
-        getRadioButton(pos).click();
-    }
-
     public SelenideElement getRadioButton(Integer pos) {
-        return $(byXpath("//tbody/tr[1]/td[" + ++pos + "]/input")).shouldBe(Condition.visible);
+        return Selenide.$(Selectors.byXpath("//tbody/tr[1]/td[" + ++pos + "]/input")).shouldBe(Condition.visible);
     }
 }

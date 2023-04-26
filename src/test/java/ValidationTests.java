@@ -7,6 +7,8 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import pages.PasswordPage;
+import pages.SettingsPage;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -33,7 +35,7 @@ public class ValidationTests extends BaseTest {
     @Owner("Andrey Liza")
     @Severity(value = SeverityLevel.CRITICAL)
     @Description("a test that checks the validity of a new password when changing the old one")
-    @Feature("изменение пароля")
+    @Feature("манипуляции с паролем")
     @ParameterizedTest(name = "password validation")
     @ValueSource(strings = {"qwe", "1", "", "4d12f", "фыва3йьй4"})
     @Attachment(value = "тест валидации пароля")

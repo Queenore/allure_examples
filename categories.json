@@ -1,17 +1,12 @@
 [
   {
-    "name": "Ignored tests",
+    "name": "Пропущенные тесты",
     "matchedStatuses": ["skipped"]
-  },
-  {
-    "name": "Outdated tests",
-    "matchedStatuses": ["broken"],
-    "traceRegex": ".*FileNotFoundException.*"
   },
   {
     "name": "Устаревшие тесты (селекторы)",
     "messageRegex": ".*Unable to locate element.*",
-    "matchedStatuses": ["broken"]
+    "matchedStatuses": ["failed"]
   },
   {
     "name": "Проблемы с браузером",
@@ -20,7 +15,7 @@
   },
   {
     "name": "Некорректные результаты",
-    "messageRegex": ".*expected:.*",
-    "matchedStatuses": ["broken"]
+    "messageRegex": ".*expected: <true> but was: <false>.*",
+    "matchedStatuses": ["failed"]
   }
 ]
