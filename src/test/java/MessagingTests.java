@@ -23,7 +23,7 @@ public class MessagingTests extends BaseTest {
 
     FriendsPage friendsPage;
     MessagePage messagePage;
-    String param = "ПАРАМЕТР ДЛЯ ПРИМЕРА";
+    String param = "PARAMETER FOR EXAMPLE";
 
     @Step("зайдем на страницу друзей; param = {param}; вложенный степ")
     private void initFriendsPage(String param) {

@@ -8,20 +8,20 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MessagePage extends BasePage {
 
-    private static final String MESSENGER_MAIN = "//div[@class='messenger_main']";
-    private static final String INPUT_MSG_FIELD = "//msg-input[@placeholder='Напишите сообщение...']";
-    private final String MSG_FIELD = "//div[@class='js-lottie-observer']//div";
-    private final String SEND_MSG_BUTTON = "//div[@class='buttons __right']//msg-button[@title='Отправить']";
-    private final String MSG_MODIFY_BUTTON = "//msg-icon[@icon='menu']//*[name()='svg']";
-    private final String DELETE_BUTTON = "//msg-tico[@icon='delete']//span[@class='tico_tx']";
-    private final String CONFIRM_DELETE_BUTTON = "//msg-button[@data-tsid='confirm-primary']";
+    private static final String MESSENGER_MAIN = "messenger_main";
+    private static final String INPUT_MSG_FIELD = "[data-tsid=\"write_msg_input-input\"]";
+    private static final String MSG_FIELD = "//div[@class='js-lottie-observer']//div";
+    private static final String SEND_MSG_BUTTON = "//div[@class='buttons __right']//msg-button[@data-l='t,sendButton']";
+    private static final String MSG_MODIFY_BUTTON = "//msg-icon[@icon='menu']//*[name()='svg']";
+    private static final String DELETE_BUTTON = "//msg-tico[@icon='delete']//span[@class='tico_tx']";
+    private static final String CONFIRM_DELETE_BUTTON = "//msg-button[@data-tsid='confirm-primary']";
 
     private String lastSendingMessage = null;
 
     @Override
     public void checkPage() {
-        $(By.xpath(MESSENGER_MAIN)).shouldBe(Condition.visible);
-        $(By.xpath(INPUT_MSG_FIELD)).shouldBe(Condition.visible);
+        $(By.className(MESSENGER_MAIN)).shouldBe(Condition.visible);
+        $(By.cssSelector(INPUT_MSG_FIELD)).shouldBe(Condition.visible);
     }
 
     public MessagePage sendMessage(String message) {

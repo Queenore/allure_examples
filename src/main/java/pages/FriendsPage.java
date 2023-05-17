@@ -10,9 +10,9 @@ public class FriendsPage extends BasePage {
 
     private SelenideElement userGridCard = null;
 
-    private final String FRIENDS_AREA = "//*[@class='portlet']";
-    private final String GRID_CARD = "//*[@class='user-grid-card __s']";
-    private final String SEND_MSG = ".//*[@title='Написать сообщение']";
+    private static final String FRIENDS_AREA = "//*[@class='portlet']";
+    private static final String GRID_CARD = "//*[@class='user-grid-card __s']";
+    private static final String SEND_MSG = "[data-l=\"t,sendMessage\"]";
 
     @Override
     public void checkPage() {
@@ -31,7 +31,7 @@ public class FriendsPage extends BasePage {
                     "userGridCard variable should be not null; call before getUserGridCard() method or make friends"
             );
         }
-        userGridCard.$(By.xpath(SEND_MSG)).click();
+        userGridCard.$(By.cssSelector(SEND_MSG)).click();
         return new MessagePage();
     }
 }
