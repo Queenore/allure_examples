@@ -1,36 +1,40 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class PasswordPage extends BasePage {
 
-    private static final String PASSWD_CHANGE_AREA = "//div[@class='user-settings_password_body']";
-    private final String SAVE_PASSWD = "//input[@value='Сохранить']";
-    private final String INFO_AFTER_CHANGING = "//div[@class='iblock __warn user-settings_info_block __nomargin']//span";
+    private static final String PASSWD_CHANGE_AREA = "user-settings_password_body";
+    private static final String SAVE_PASSWD = "[data-l=\"t,submit\"]";
+    private static final String INFO_AFTER_CHANGING = "//div[@class='iblock __warn user-settings_info_block __nomargin']//span";
+    private static final String ID_OLD_PASSWORD = "field_oldPassword";
+    private static final String ID_NEW_PASSWORD = "field_newPassword";
+    private static final String ID_RETYPE_NEW_PASSWORD = "field_retypePassword";
 
     @Override
     public void checkPage() {
-        Selenide.$(By.xpath(PASSWD_CHANGE_AREA)).shouldBe(Condition.visible);
+        $(By.className(PASSWD_CHANGE_AREA)).shouldBe(Condition.visible);
     }
 
     public PasswordPage setOldPassword(String oldPasswd) {
-        Selenide.$(By.id("field_oldPassword")).shouldBe(Condition.visible).val(oldPasswd);
+        $(By.id(ID_OLD_PASSWORD)).shouldBe(Condition.visible).val(oldPasswd);
         return this;
     }
 
     public PasswordPage setNewPassword(String newPasswd) {
-        Selenide.$(By.id("field_newPassword")).shouldBe(Condition.visible).val(newPasswd);
-        Selenide.$(By.id("field_retypePassword")).shouldBe(Condition.visible).val(newPasswd);
+        $(By.id(ID_NEW_PASSWORD)).shouldBe(Condition.visible).val(newPasswd);
+        $(By.id(ID_RETYPE_NEW_PASSWORD)).shouldBe(Condition.visible).val(newPasswd);
         return this;
     }
 
     public void submitPasswordChange() {
-        Selenide.$(By.xpath(SAVE_PASSWD)).shouldBe(Condition.visible).click();
+        $(By.cssSelector(SAVE_PASSWD)).shouldBe(Condition.visible).click();
     }
 
     public String getInfoAfterChangingPasswd() {
-        return Selenide.$(By.xpath(INFO_AFTER_CHANGING)).shouldBe(Condition.exist).getText();
+        return $(By.xpath(INFO_AFTER_CHANGING)).shouldBe(Condition.exist).getText();
     }
 }

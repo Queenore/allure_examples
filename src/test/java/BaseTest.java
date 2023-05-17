@@ -17,6 +17,7 @@ public class BaseTest {
 
     @BeforeAll
     public static void okAuth() {
+        //why
         if (homePage != null) {
             return;
         }
@@ -24,10 +25,7 @@ public class BaseTest {
         open(authPageLink);
         AuthPage authPage = new AuthPage();
 
-        authPage.inputLogin(LOGIN);
-        authPage.inputPassword(PASSWD);
-
-        homePage = authPage.submitAuth();
+        homePage = authPage.login(LOGIN, PASSWD);
     }
 
     @BeforeEach
